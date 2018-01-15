@@ -19,7 +19,7 @@ public class Exchange {
 
     private String volume;
 
-//    private String url;
+    private String url;
 
     private Date timestamp;
 
@@ -61,5 +61,13 @@ public class Exchange {
 
     public void setTimestamp(Date timestamp) {
         this.timestamp = timestamp;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }
