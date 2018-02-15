@@ -19,7 +19,7 @@ public class Application {
         return new WebMvcConfigurerAdapter() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/getlatest").allowedOrigins("*");
+                registry.addMapping("/basic").allowedOrigins("*");
                 registry.addMapping("/getByName").allowedOrigins("*");
                 registry.addMapping("/getByRank").allowedOrigins("*");
             }
