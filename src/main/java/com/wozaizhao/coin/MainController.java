@@ -19,6 +19,9 @@ public class MainController {
     @Autowired
     private ExchangebasicRepository exchangebasicRepository;
 
+    @Autowired
+    private CoinbasicRepository coinbasicRepository;
+
     @RequestMapping(path = "/")
     public String root() {
         return "ok";
@@ -30,11 +33,18 @@ public class MainController {
         return exchangeRepository.findAll();
     }
 
-    @RequestMapping(path = "/basic")
+    @RequestMapping(path = "/exchange")
     public @ResponseBody
     Iterable<Exchangebasic> getExchangeBasicPage(@RequestParam(value = "page") Integer page, @RequestParam(value = "size") Integer size) {
         Sort sort = new Sort(new Sort.Order(Sort.Direction.ASC, "rank"));
         return exchangebasicRepository.findAll(new PageRequest(page, size, sort));
+    }
+
+    @RequestMapping(path = "/coin")
+    public @ResponseBody
+    Iterable<Coinbasic> getCoinPage(@RequestParam(value = "page") Integer page, @RequestParam(value = "size") Integer size) {
+        Sort sort = new Sort(new Sort.Order(Sort.Direction.ASC, "rank"));
+        return coinbasicRepository.findAll(new PageRequest(page, size, sort));
     }
 
 
